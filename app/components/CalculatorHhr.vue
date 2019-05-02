@@ -1,11 +1,8 @@
 <template>
   <v-form v-model="valid">
     <v-container>
-      <v-layout>
-        <v-flex
-          xs12
-          md4
-        >
+      <v-layout row wrap>
+        <v-flex xs12 md3>
           <v-text-field
             v-model="age"
             :rules="ageRules"
@@ -14,10 +11,7 @@
           />
         </v-flex>
 
-        <v-flex
-          xs12
-          md4
-        >
+        <v-flex xs12 md3>
           <v-text-field
             v-model="moderateHR"
             :rules="moderateRules"
@@ -26,12 +20,9 @@
           />
         </v-flex>
 
-        <v-flex
-          xs12
-          md4
-        >
+        <v-flex xs12 md6>
           <v-layout>
-            <v-flex md10>
+            <v-flex xs9 md9>
               <v-slider
                 v-model="intensity"
                 label="運動強度"
@@ -39,7 +30,7 @@
                 :min="0"
               />
             </v-flex>
-            <v-flex md2>
+            <v-flex xs2 md3 offset-xs1>
               <v-text-field
                 v-model="intensity"
                 class="text-md-right"
@@ -53,8 +44,12 @@
       </v-layout>
       <v-card>
         <v-card-title>
-          <h3>{{ targetHR }}</h3>
+          <h2>{{ targetHR }}</h2>
         </v-card-title>
+        <v-card-text>
+          <p>[目安となる心拍数] = {(220 - [年齢]) - [安静時心拍数]} × [運動強度] + [安静時心拍数]</p>
+          <p>有酸素運動には40〜70%くらいの運動強度が効果的であると言われている。</p>
+        </v-card-text>
       </v-card>
     </v-container>
   </v-form>
